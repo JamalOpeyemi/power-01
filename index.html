@@ -60,6 +60,9 @@
         <source media="(max-aspect-ratio: 4/5)" srcset="assets/images/hero-mobile.jpg" />
         <img class="hero-photo" src="assets/images/hero-wide.jpg" alt="Client training with resistance bands in the POWER studio" fetchpriority="high" />
       </picture>
+      <!-- Desktop-only looping video. script.js loads it after the page is ready; phones keep the still image. -->
+      <video class="hero-video" id="hero-video" muted loop playsinline preload="none" aria-hidden="true"
+             poster="assets/images/hero-wide.jpg" data-src="assets/video/hero-loop.mp4"></video>
 
       <h1 id="hero-title" class="hero-title">Build Power</h1>
 

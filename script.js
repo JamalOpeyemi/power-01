@@ -81,3 +81,22 @@
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
   });
 })();
+
+// Hero video: desktop/landscape only, skipped for reduced motion and data-saver
+(function () {
+  const video = document.getElementById("hero-video");
+  if (!video) return;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const portrait = window.matchMedia("(max-aspect-ratio: 4/5)").matches;
+  const saveData = navigator.connection && navigator.connection.saveData;
+  if (reduce || portrait || saveData) return;
+
+  const start = () => {
+    video.src = video.dataset.src;
+    video.addEventListener("playing", () => video.classList.add("is-playing"), { once: true });
+    const p = video.play();
+    if (p && p.catch) p.catch(() => {}); // autoplay blocked: keep the still image
+  };
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start, { once: true });
+})();
