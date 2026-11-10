@@ -14,7 +14,7 @@
   --soft: #b9bbc0;
   --line: rgba(255, 255, 255, .12);
   --line-dark: rgba(12, 13, 15, .16);
-  --card-bg: rgba(14, 15, 18, .62);
+  --card-bg: rgba(14, 15, 18, .80);
 
   --sans: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -165,8 +165,6 @@ img, iframe, svg { display: block; max-width: 100%; }
   background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
   transition: background .3s ease;
 }
 .site-header.is-scrolled { background: rgba(12,13,15,.86); }
@@ -293,8 +291,6 @@ img, iframe, svg { display: block; max-width: 100%; }
   background: var(--card-bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
   font-size: var(--fs-label);
   letter-spacing: .04em;
   text-transform: uppercase;
@@ -687,7 +683,7 @@ img, iframe, svg { display: block; max-width: 100%; }
 [hidden] { display: none !important; }
 
 /* Hero scroll animation (landscape screens; phones keep the still image) */
-.hero-scroll { position: relative; height: 330vh; }   /* taller = slower animation */
+.hero-scroll { position: relative; height: 250vh; }   /* taller = slower animation */
 .hero-scroll .hero { position: sticky; top: 0; }
 .hero-canvas {
   position: absolute;
@@ -731,6 +727,9 @@ img, iframe, svg { display: block; max-width: 100%; }
   100% { transform: scaleY(1); opacity: 0; }
 }
 
+@media (min-aspect-ratio: 801/1000) and (prefers-reduced-motion: no-preference) {
+  .hero-scroll .hero::after { display: none; }   /* no blended grain over the moving canvas */
+}
 @media (max-aspect-ratio: 4/5) {
   .hero-scroll { height: auto; }
   .hero-canvas, .scroll-cue { display: none; }
@@ -751,7 +750,5 @@ img, iframe, svg { display: block; max-width: 100%; }
   display: inline-block;
   opacity: var(--t);
   transform: translateY(calc((1 - var(--t)) * .45em));
-  filter: blur(calc((1 - var(--t)) * 8px));
-  will-change: opacity, transform;
 }
 .hero-title .w { display: inline-block; white-space: nowrap; }
