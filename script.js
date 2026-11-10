@@ -82,21 +82,91 @@
   });
 })();
 
-// Hero video: desktop/landscape only, skipped for reduced motion and data-saver
+// Hero scroll animation: scrolling plays the band row (landscape screens only)
 (function () {
-  const video = document.getElementById("hero-video");
-  if (!video) return;
+  const wrap = document.getElementById("hero-scroll");
+  const canvas = document.getElementById("hero-canvas");
+  if (!wrap || !canvas) return;
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const portrait = window.matchMedia("(max-aspect-ratio: 4/5)").matches;
-  const saveData = navigator.connection && navigator.connection.saveData;
-  if (reduce || portrait || saveData) return;
+  const portrait = window.matchMedia("(max-aspect-ratio: 4/5)");
+  if (reduce || portrait.matches) return;
 
-  const start = () => {
-    video.src = video.dataset.src;
-    video.addEventListener("playing", () => video.classList.add("is-playing"), { once: true });
-    const p = video.play();
-    if (p && p.catch) p.catch(() => {}); // autoplay blocked: keep the still image
-  };
-  if (document.readyState === "complete") start();
-  else window.addEventListener("load", start, { once: true });
+  const FRAME_COUNT = 57;
+  const path = (i) => `assets/hero-frames/frame_${String(i + 1).padStart(3, "0")}.webp`;
+  const FOCUS_X = 0.55, FOCUS_Y = 0.45;   // same as the still image's object-position
+  const EASE = 0.16;                        // lower = silkier, higher = snappier
+
+  const hero = wrap.querySelector(".hero");
+  const ctx = canvas.getContext("2d");
+  const frames = new Array(FRAME_COUNT);
+  let target = 0, current = 0, drawn = -1, ticking = false;
+
+  const isLoaded = (img) => img && img.complete && img.naturalWidth;
+  function load(i) {
+    const img = new Image();
+    img.decoding = "async";
+    img.src = path(i);
+    img.onload = () => { if (Math.round(current) === i) request(true); };
+    frames[i] = img;
+  }
+  load(0);
+  frames[0].onload = () => { request(true); for (let i = 1; i < FRAME_COUNT; i++) load(i); };
+
+  function nearest(i) {
+    for (let d = 0; d < FRAME_COUNT; d++) {
+      if (isLoaded(frames[i - d])) return frames[i - d];
+      if (isLoaded(frames[i + d])) return frames[i + d];
+    }
+    return null;
+  }
+
+  function size() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(hero.clientWidth * dpr);
+    canvas.height = Math.round(hero.clientHeight * dpr);
+    request(true);
+  }
+
+  function draw(i) {
+    const img = nearest(i);
+    if (!img) return false;
+    const cw = canvas.width, ch = canvas.height, iw = img.naturalWidth, ih = img.naturalHeight;
+    const scale = Math.max(cw / iw, ch / ih);          // cover
+    const dw = iw * scale, dh = ih * scale;
+    ctx.drawImage(img, (cw - dw) * FOCUS_X, (ch - dh) * FOCUS_Y, dw, dh);
+    canvas.classList.add("is-ready");
+    return isLoaded(frames[i]);
+  }
+
+  function progress() {
+    const distance = wrap.offsetHeight - hero.offsetHeight;
+    return distance > 0 ? Math.min(1, Math.max(0, -wrap.getBoundingClientRect().top / distance)) : 0;
+  }
+
+  function onScroll() {
+    const p = progress();
+    hero.style.setProperty("--progress", p.toFixed(3));
+    target = p * (FRAME_COUNT - 1);
+    request();
+  }
+
+  function request(force) {
+    if (force) drawn = -1;
+    if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+  }
+
+  function tick() {
+    ticking = false;
+    current += (target - current) * EASE;
+    if (Math.abs(target - current) < 0.01) current = target;
+    const i = Math.round(current);
+    if (i !== drawn && draw(i)) drawn = i;
+    if (current !== target) request();   // a frame still loading redraws from its onload
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", size);
+  portrait.addEventListener("change", () => location.reload());
+  size();
+  onScroll();
 })();

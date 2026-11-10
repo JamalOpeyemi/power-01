@@ -55,14 +55,16 @@
   <main>
 
     <!-- ============ HERO ============ -->
+    <!-- The tall wrapper gives room to scroll while the hero stays pinned; scrolling plays the band row.
+         Taller wrapper = slower animation (see .hero-scroll in styles.css). -->
+    <div class="hero-scroll" id="hero-scroll">
     <section class="hero" aria-labelledby="hero-title">
       <picture>
         <source media="(max-aspect-ratio: 4/5)" srcset="assets/images/hero-mobile.jpg" />
         <img class="hero-photo" src="assets/images/hero-wide.jpg" alt="Client training with resistance bands in the POWER studio" fetchpriority="high" />
       </picture>
-      <!-- Desktop-only looping video. script.js loads it after the page is ready; phones keep the still image. -->
-      <video class="hero-video" id="hero-video" muted loop playsinline preload="none" aria-hidden="true"
-             poster="assets/images/hero-wide.jpg" data-src="assets/video/hero-loop.mp4"></video>
+      <!-- Scroll animation (landscape screens only). Frame 1 matches hero-wide.jpg, so it takes over seamlessly. -->
+      <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
 
       <h1 id="hero-title" class="hero-title">Build Power</h1>
 
@@ -74,7 +76,10 @@
         <a class="rating" href="#results"><i class="dot" aria-hidden="true"></i>4.9 · 309 Google reviews</a>
         <a class="cta" href="book.html">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
       </div>
+
+      <div class="scroll-cue" aria-hidden="true">Scroll</div>
     </section>
+    </div>
 
     <!-- ============ INTRO / STATS ============ -->
     <section class="intro" aria-label="About POWER">
