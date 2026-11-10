@@ -651,3 +651,37 @@ img, iframe, svg { display: block; max-width: 100%; }
   .hero-photo, .hero-title, .hero-card { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Coach initial cards (until real portraits arrive) */
+.monogram {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(120% 90% at 30% 15%, rgba(255,210,0,.10), transparent 60%),
+    var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.monogram span {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(64px, 8vw, 120px);
+  line-height: 1;
+  color: rgba(255,255,255,.88);
+}
+.monogram::after {
+  content: "";
+  position: absolute;
+  left: 18px; right: 18px; bottom: 18px;
+  height: 2px;
+  background: var(--yellow);
+  transform: scaleX(.18);
+  transform-origin: left;
+}
+
+/* Results: reviews lead while before/after photos are pending */
+.reviews-first { margin-top: 0; }
+.reviews-link { margin-top: clamp(40px, 5vw, 64px); }
+[hidden] { display: none !important; }

@@ -154,25 +154,25 @@
         </header>
         <h2 id="coaches-title" class="title reveal">The Coaches</h2>
 
-        <!-- COACHES: duplicate a .coach block per trainer and add their portrait -->
+        <!-- COACHES: replace each .monogram with <div class="slot coach-img"><img src="..." alt="Coach name"></div> once real portraits arrive -->
         <div class="coaches">
           <article class="coach reveal">
-            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-img monogram" aria-hidden="true"><span>S</span></div>
             <div class="coach-meta"><h3>Samanda</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Teaches proper form from day one and knows how to push you just enough. Clients call her friendly, supportive and knowledgeable.</p>
           </article>
           <article class="coach reveal">
-            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-img monogram" aria-hidden="true"><span>02</span></div>
             <div class="coach-meta"><h3>Trainer name</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
           <article class="coach reveal">
-            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-img monogram" aria-hidden="true"><span>03</span></div>
             <div class="coach-meta"><h3>Trainer name</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
           <article class="coach reveal">
-            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-img monogram" aria-hidden="true"><span>04</span></div>
             <div class="coach-meta"><h3>Trainer name</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
@@ -189,8 +189,9 @@
         </header>
         <h2 id="results-title" class="title reveal">Real Results</h2>
 
-        <!-- TRANSFORMATIONS: add before/after photos and the client's details -->
-        <div class="transforms">
+        <!-- TRANSFORMATIONS: hidden until real client photos (with written consent) are supplied.
+             Remove the "hidden" attribute below once they are added. -->
+        <div class="transforms" hidden>
           <figure class="transform reveal">
             <div class="ba"><div class="slot" data-label="Before"></div><div class="slot" data-label="After"></div></div>
             <figcaption><span>Client name</span><span>Duration · Programme · Result</span></figcaption>
@@ -205,7 +206,7 @@
           </figure>
         </div>
 
-        <div class="reviews">
+        <div class="reviews reviews-first">
           <div class="score reveal">
             <p class="score-num">4.9</p>
             <p class="score-meta"><span class="stars" aria-hidden="true">●●●●●</span>309 Google reviews</p>
@@ -231,6 +232,8 @@
             <figcaption>Alyssa Wong <span>· Google review</span></figcaption>
           </figure>
         </div>
+
+        <p class="reviews-link reveal"><a class="btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=POWER+Personal+Training+USJ+Taipan" target="_blank" rel="noopener">Read all 309 reviews on Google <span aria-hidden="true">→</span></a></p>
       </div>
     </section>
 
