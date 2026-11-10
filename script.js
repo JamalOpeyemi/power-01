@@ -91,82 +91,103 @@
   const portrait = window.matchMedia("(max-aspect-ratio: 4/5)");
   if (reduce || portrait.matches) return;
 
+  // ---- Settings ----
   const FRAME_COUNT = 57;
   const path = (i) => `assets/hero-frames/frame_${String(i + 1).padStart(3, "0")}.webp`;
-  const FOCUS_X = 0.55, FOCUS_Y = 0.45;   // same as the still image's object-position
-  const EASE = 0.16;                        // lower = silkier, higher = snappier
+  const FOCUS_X = 0.55, FOCUS_Y = 0.45;  // same crop as the still image (object-position)
+  const MOTION_END = 0.86;               // the pull finishes at 86% of the hero scroll; the headline lands after
+  const SMOOTHING_MS = 70;               // how closely it follows your scroll: lower = tighter, higher = softer
 
   const hero = wrap.querySelector(".hero");
-  const ctx = canvas.getContext("2d");
-  const frames = new Array(FRAME_COUNT);
-  let target = 0, current = 0, drawn = -1, ticking = false;
+  const ctx = canvas.getContext("2d", { alpha: false });
+  const imgs = new Array(FRAME_COUNT);
+  const bitmaps = new Array(FRAME_COUNT);   // pre-decoded frames: no decoding while you scroll
 
-  const isLoaded = (img) => img && img.complete && img.naturalWidth;
   function load(i) {
     const img = new Image();
     img.decoding = "async";
     img.src = path(i);
-    img.onload = () => { if (Math.round(current) === i) request(true); };
-    frames[i] = img;
+    img.onload = () => {
+      const done = (bm) => { if (bm) bitmaps[i] = bm; dirty = true; kick(); };
+      if (window.createImageBitmap) createImageBitmap(img).then(done, () => done());
+      else done();
+    };
+    imgs[i] = img;
   }
-  load(0);
-  frames[0].onload = () => { request(true); for (let i = 1; i < FRAME_COUNT; i++) load(i); };
+  for (let i = 0; i < FRAME_COUNT; i++) load(i);
 
+  const ready = (i) => bitmaps[i] || (imgs[i] && imgs[i].complete && imgs[i].naturalWidth ? imgs[i] : null);
   function nearest(i) {
     for (let d = 0; d < FRAME_COUNT; d++) {
-      if (isLoaded(frames[i - d])) return frames[i - d];
-      if (isLoaded(frames[i + d])) return frames[i + d];
+      const a = ready(i - d); if (a) return a;
+      const b = ready(i + d); if (b) return b;
     }
     return null;
   }
 
+  // ---- Canvas size ----
+  let cw = 0, ch = 0;
   function size() {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(hero.clientWidth * dpr);
-    canvas.height = Math.round(hero.clientHeight * dpr);
-    request(true);
+    cw = canvas.width = Math.round(hero.clientWidth * dpr);
+    ch = canvas.height = Math.round(hero.clientHeight * dpr);
+    dirty = true; kick();
   }
 
-  function draw(i) {
-    const img = nearest(i);
-    if (!img) return false;
-    const cw = canvas.width, ch = canvas.height, iw = img.naturalWidth, ih = img.naturalHeight;
-    const scale = Math.max(cw / iw, ch / ih);          // cover
-    const dw = iw * scale, dh = ih * scale;
-    ctx.drawImage(img, (cw - dw) * FOCUS_X, (ch - dh) * FOCUS_Y, dw, dh);
+  function cover(img) {
+    const iw = img.width, ih = img.height;
+    const s = Math.max(cw / iw, ch / ih);
+    const dw = iw * s, dh = ih * s;
+    return [(cw - dw) * FOCUS_X, (ch - dh) * FOCUS_Y, dw, dh];
+  }
+
+  // Draw a fractional frame: blend frame n with frame n+1 so movement is continuous, not stepped
+  function draw(pos) {
+    const n = Math.floor(pos), t = pos - n;
+    const a = ready(n) || nearest(n);
+    if (!a) return;
+    ctx.globalAlpha = 1;
+    ctx.drawImage(a, ...cover(a));
+    const b = t > 0.001 ? ready(n + 1) : null;
+    if (b) {
+      ctx.globalAlpha = t;
+      ctx.drawImage(b, ...cover(b));
+      ctx.globalAlpha = 1;
+    }
     canvas.classList.add("is-ready");
-    return isLoaded(frames[i]);
   }
 
-  function progress() {
+  // ---- Scroll → progress, lightly smoothed over time ----
+  let target = 0, current = 0, last = 0, running = false, dirty = true, drawnAt = -1;
+
+  function measure() {
     const distance = wrap.offsetHeight - hero.offsetHeight;
-    return distance > 0 ? Math.min(1, Math.max(0, -wrap.getBoundingClientRect().top / distance)) : 0;
+    target = distance > 0 ? Math.min(1, Math.max(0, -wrap.getBoundingClientRect().top / distance)) : 0;
   }
 
-  function onScroll() {
-    const p = progress();
-    hero.style.setProperty("--progress", p.toFixed(3));
-    target = p * (FRAME_COUNT - 1);
-    request();
+  function frame(now) {
+    const dt = last ? Math.min(64, now - last) : 16;
+    last = now;
+    current += (target - current) * (1 - Math.exp(-dt / SMOOTHING_MS));
+    if (Math.abs(target - current) < 0.0004) current = target;
+
+    hero.style.setProperty("--progress", current.toFixed(4));
+    const pos = Math.min(1, current / MOTION_END) * (FRAME_COUNT - 1);
+    if (dirty || Math.abs(pos - drawnAt) > 0.002) { draw(pos); drawnAt = pos; dirty = false; }
+
+    if (current !== target) requestAnimationFrame(frame);
+    else { running = false; last = 0; }
   }
 
-  function request(force) {
-    if (force) drawn = -1;
-    if (!ticking) { ticking = true; requestAnimationFrame(tick); }
+  function kick() {
+    if (!running) { running = true; requestAnimationFrame(frame); }
   }
 
-  function tick() {
-    ticking = false;
-    current += (target - current) * EASE;
-    if (Math.abs(target - current) < 0.01) current = target;
-    const i = Math.round(current);
-    if (i !== drawn && draw(i)) drawn = i;
-    if (current !== target) request();   // a frame still loading redraws from its onload
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", size);
+  window.addEventListener("scroll", () => { measure(); kick(); }, { passive: true });
+  window.addEventListener("resize", () => { size(); measure(); });
   portrait.addEventListener("change", () => location.reload());
   size();
-  onScroll();
+  measure();
+  current = target;   // start in place if the page loads part-way down
+  kick();
 })();

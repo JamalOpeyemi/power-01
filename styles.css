@@ -687,7 +687,7 @@ img, iframe, svg { display: block; max-width: 100%; }
 [hidden] { display: none !important; }
 
 /* Hero scroll animation (landscape screens; phones keep the still image) */
-.hero-scroll { position: relative; height: 240vh; }   /* taller = slower animation */
+.hero-scroll { position: relative; height: 330vh; }   /* taller = slower animation */
 .hero-scroll .hero { position: sticky; top: 0; }
 .hero-canvas {
   position: absolute;
@@ -714,7 +714,7 @@ img, iframe, svg { display: block; max-width: 100%; }
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
-  opacity: calc(.9 - var(--progress, 0) * 9);
+  opacity: calc(.9 - var(--progress, 0) * 7);
   pointer-events: none;
 }
 .scroll-cue::after {
@@ -739,3 +739,19 @@ img, iframe, svg { display: block; max-width: 100%; }
   .hero-scroll { height: auto; }
   .hero-canvas, .scroll-cue { display: none; }
 }
+
+/* Headline letters: driven by --progress (0 → 1 over the hero scroll).
+   Static screens (phones, reduced motion) keep --progress at 1, so the headline simply shows. */
+.hero { --progress: 1; }
+@media (min-aspect-ratio: 801/1000) and (prefers-reduced-motion: no-preference) {
+  .hero-scroll .hero { --progress: 0; }
+}
+.hero-title .ch {
+  --t: clamp(0, calc((var(--progress) - var(--s, 0)) * 14), 1);
+  display: inline-block;
+  opacity: var(--t);
+  transform: translateY(calc((1 - var(--t)) * .45em));
+  filter: blur(calc((1 - var(--t)) * 8px));
+  will-change: opacity, transform;
+}
+.hero-title .w { display: inline-block; white-space: nowrap; }
