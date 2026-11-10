@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POWER Personal Training | Hero preview (minimal)</title>
+  <meta name="theme-color" content="#1c1e22" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Doto:ROND,wght@0..100,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --yellow: #ffd200;   /* swap for the exact POWER yellow */
+      --white: #ffffff;
+      --ink: #0a0a0a;
+      --bg: #1c1e22;       /* sampled from the photo's shadows */
+      --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+      --dots: "Doto", var(--mono);
+      --edge: clamp(20px, 3vw, 44px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--white); }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      height: 100svh;
+      min-height: 600px;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--bg);
+    }
+
+    /* Soft backdrop built from the photo's own floor, so wide screens extend seamlessly */
+    .hero-fill {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background: url("assets/images/hero-plate.jpg") center / 100% 100% no-repeat;
+    }
+
+    /* The photo itself, kept at full height and feathered into the sides */
+    .hero-photo {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: -2;
+      height: 100%;
+      width: auto;
+      transform: translateX(-50%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 14%, #000 86%, transparent 100%);
+    }
+
+    /* Light vignette so the corner text stays readable */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.35) 0%, transparent 22%),
+        linear-gradient(0deg, rgba(0,0,0,.55) 0%, transparent 30%);
+      pointer-events: none;
+    }
+
+    /* Film grain, like the poster */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .14;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ---------- Corner text ---------- */
+    .corner {
+      position: absolute;
+      margin: 0;
+      font-family: var(--mono);
+      font-weight: 400;
+      font-size: clamp(11px, 1vw, 14px);
+      line-height: 1.45;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .corner span { display: block; }
+    .tl { top: var(--edge); left: var(--edge); }
+    .tr { top: var(--edge); right: var(--edge); text-align: right; }
+    .bl { bottom: var(--edge); left: var(--edge); }
+    .br { bottom: var(--edge); right: var(--edge); text-align: right; }
+
+    .tl a:hover,
+    .bl a:hover { color: var(--yellow); }
+
+    .dot {
+      display: inline-block;
+      width: .55em;
+      height: .55em;
+      margin-right: .5em;
+      border-radius: 50%;
+      background: var(--yellow);
+      vertical-align: .05em;
+    }
+
+    /* ---------- Headline ---------- */
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      font-family: var(--dots);
+      font-weight: 800;
+      font-variation-settings: "ROND" 100;
+      font-size: clamp(54px, 7.6vw, 128px);
+      line-height: 1;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-shadow: 0 0 24px rgba(0,0,0,.18);
+    }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      font-family: var(--mono);
+      font-weight: 500;
+      font-size: clamp(12px, 1vw, 14px);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--yellow);
+      transition: background .2s ease, color .2s ease;
+    }
+    .cta .arrow { transition: transform .2s ease; }
+    .cta:hover { background: var(--white); }
+    .cta:hover .arrow { transform: translateX(4px); }
+    .cta:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+
+    /* ---------- Entrance ---------- */
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes rise { from { opacity: 0; transform: translate(-50%, calc(-50% + 14px)); } to { opacity: 1; transform: translate(-50%, -50%); } }
+    .hero-photo, .hero-fill { animation: fade 1.2s ease both; }
+    .hero-title { animation: rise 1s .35s cubic-bezier(.2,.7,.2,1) both; }
+    .corner { animation: fade .8s .8s ease both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-photo, .hero-fill, .hero-title, .corner { animation: none; }
+    }
+
+    /* ---------- Phones / portrait screens: photo fills the frame ---------- */
+    @media (max-aspect-ratio: 4/5) {
+      .hero-photo {
+        left: 0;
+        width: 100%;
+        transform: none;
+        object-fit: cover;
+        object-position: 58% 40%;
+        -webkit-mask-image: none;
+                mask-image: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: clamp(44px, 14vw, 72px); white-space: normal; text-align: center; line-height: .95; }
+      .br { left: var(--edge); text-align: left; }
+      .bl { bottom: calc(var(--edge) + 66px); }
+      .cta { width: 100%; justify-content: space-between; padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-fill" aria-hidden="true"></div>
+    <img class="hero-photo" src="assets/images/hero.jpg" alt="Client training with resistance bands at POWER Personal Training" />
+
+    <p class="corner tl">
+      <span><a href="#top">POWER Personal Training</a></span>
+      <span>Assess / Train / Progress.</span>
+    </p>
+
+    <p class="corner tr">
+      <span>One-on-one coaching</span>
+      <span>No guesswork</span>
+    </p>
+
+    <h1 id="hero-title" class="hero-title">Build Power</h1>
+
+    <p class="corner bl">
+      <span>Subang · USJ Taipan</span>
+      <span><a href="#reviews"><i class="dot" aria-hidden="true"></i>4.9 · 309 Google reviews</a></span>
+    </p>
+
+    <div class="corner br">
+      <a class="cta" href="index.html#book">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+</body>
+</html>
