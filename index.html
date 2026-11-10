@@ -4,530 +4,386 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>POWER Personal Training | 1-on-1 Coaching in Subang USJ Taipan</title>
-  <meta name="description" content="POWER Personal Training, USJ Taipan, Subang Jaya. One-on-one coaching, personalised workout programmes and form correction. Rated 4.9 from 309 Google reviews. Book a free consultation." />
-  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="POWER Personal Training, USJ Taipan, Subang Jaya. One-on-one coaching, personalised programmes and form correction. Rated 4.9 from 309 Google reviews. Book a free consultation." />
+  <meta name="theme-color" content="#0c0d0f" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Doto:ROND,wght@0..100,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="POWER Personal Training home">
-        <!-- LOGO: replace this wordmark with the POWER logo file when ready -->
-        <span class="logo-mark">POWER</span>
-        <span class="logo-sub">Personal Training</span>
-      </a>
+    <a href="#top" class="brand">
+      <span>POWER Personal Training</span>
+      <span class="muted-on-scroll">Assess / Train / Progress.</span>
+    </a>
 
-      <nav class="main-nav" id="main-nav" aria-label="Main">
-        <a href="#programmes">Programmes</a>
-        <a href="#trainers">Trainers</a>
-        <a href="#results">Results</a>
-        <a href="#why">Why POWER</a>
-        <a href="#location">Location</a>
-        <a href="#book" class="btn btn-primary btn-sm nav-cta">Book Free Consultation</a>
-      </nav>
-
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="header-right">
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#programmes">Programmes</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#coaches">Coaches</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#results">Results</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#why">Why POWER</a><span class="sep" aria-hidden="true">/</span>
+      <a href="#visit">Visit</a>
+      <a href="#book" class="nav-book">Book →</a>
+    </nav>
+    <p class="muted-on-scroll">One-on-one coaching / No guesswork</p>
     </div>
+
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
   </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="menu" hidden>
+    <nav aria-label="Mobile">
+      <a href="#programmes">Programmes</a>
+      <a href="#coaches">Coaches</a>
+      <a href="#results">Results</a>
+      <a href="#why">Why POWER</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a href="#book" class="cta cta-block">Book a free consultation <span aria-hidden="true">→</span></a>
+    <p class="menu-foot">017-586 1619<br />55D, Jalan USJ 10/1f, Subang Jaya</p>
+  </div>
 
   <main>
 
-    <!-- ============ 1. HERO ============ -->
+    <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-title">
-      <!-- HERO MEDIA: drop in a full-bleed photo or looping video here, e.g.
-           <video class="hero-video" autoplay muted loop playsinline poster="..."><source src="..." type="video/mp4"></video> -->
-      <div class="hero-media img-slot" data-label="Hero video / photo · 1920 × 1080"></div>
-      <div class="hero-overlay"></div>
+      <picture>
+        <source media="(max-aspect-ratio: 4/5)" srcset="assets/images/hero-mobile.jpg" />
+        <img class="hero-photo" src="assets/images/hero-wide.jpg" alt="Client training with resistance bands in the POWER studio" fetchpriority="high" />
+      </picture>
 
-      <div class="container hero-content">
-        <p class="eyebrow">Personal Training · Subang USJ Taipan</p>
-        <h1 id="hero-title" class="hero-title">
-          Stronger<br />
-          starts <span class="text-yellow">here.</span>
-        </h1>
-        <p class="hero-lead">
-          One-on-one coaching, a programme built around you, and a trainer who checks every rep.
-          No guesswork. Real progress you can see.
+      <h1 id="hero-title" class="hero-title">Build Power</h1>
+
+      <p class="corner hero-bl">
+        <span>Subang · USJ Taipan</span>
+        <span><a href="#results"><i class="dot" aria-hidden="true"></i>4.9 · 309 Google reviews</a></span>
+      </p>
+
+      <div class="corner hero-br">
+        <a class="cta" href="#book">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <!-- ============ INTRO / STATS ============ -->
+    <section class="intro" aria-label="About POWER">
+      <div class="wrap">
+        <p class="intro-text reveal">
+          Personal training in Subang Jaya, built around one idea: a coach beside you for every rep.
+          We correct your form, write your programme and keep you accountable, so every session moves you forward.
         </p>
-        <div class="hero-actions">
-          <a href="#book" class="btn btn-primary btn-lg">Book a Free Consultation</a>
-          <a href="#programmes" class="btn btn-ghost btn-lg">View Programmes</a>
-        </div>
 
-        <a class="rating-badge" href="#results" aria-label="Rated 4.9 out of 5 from 309 Google reviews">
-          <span class="stars" aria-hidden="true">★★★★★</span>
-          <span><strong>4.9</strong> from 309 Google reviews</span>
-        </a>
+        <dl class="stats">
+          <div class="stat reveal"><dt>Google rating</dt><dd>4<span class="dp" aria-hidden="true"></span><span class="sr-only">.</span>9</dd></div>
+          <div class="stat reveal"><dt>Client reviews</dt><dd>309</dd></div>
+          <div class="stat reveal"><dt>Coaching ratio</dt><dd>1<span class="colon" aria-hidden="true"></span><span class="sr-only">:</span>1</dd></div>
+          <div class="stat reveal"><dt>Open until</dt><dd>9PM</dd></div>
+        </dl>
       </div>
     </section>
 
-    <!-- Marquee strip -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>One-on-one coaching</span><span>Form correction</span><span>Tailored workouts</span><span>Patient trainers</span><span>Real results</span>
-        <span>One-on-one coaching</span><span>Form correction</span><span>Tailored workouts</span><span>Patient trainers</span><span>Real results</span>
-      </div>
-    </div>
-
-    <!-- Stats -->
-    <section class="stats" aria-label="POWER at a glance">
-      <div class="container stats-grid">
-        <div class="stat">
-          <span class="stat-num">4.9<span class="text-yellow">★</span></span>
-          <span class="stat-label">Google rating</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">309</span>
-          <span class="stat-label">Client reviews</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">1:1</span>
-          <span class="stat-label">Coaching, every session</span>
-        </div>
-        <div class="stat">
-          <span class="stat-num">9<small>PM</small></span>
-          <span class="stat-label">Open until</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 2. TRAINING PROGRAMMES ============ -->
+    <!-- ============ 01 PROGRAMMES ============ -->
     <section class="section" id="programmes" aria-labelledby="programmes-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Training Programmes</p>
-          <h2 id="programmes-title" class="section-title">Built for your body.<br /><span class="text-yellow">Built for your goal.</span></h2>
-          <p class="section-lead">
-            Every programme starts with a conversation about where you are and where you want to be.
-            Your trainer then builds the plan, coaches every session and adjusts as you progress.
-          </p>
-        </div>
+      <div class="wrap">
+        <header class="section-head">
+          <p class="label"><span>01</span> Programmes</p>
+          <p class="label label-right">Every plan starts<br />with a conversation</p>
+        </header>
+        <h2 id="programmes-title" class="title reveal">Programmes</h2>
 
-        <div class="programme-grid">
-          <article class="programme-card">
-            <div class="img-slot programme-media" data-label="Programme photo"></div>
-            <div class="programme-body">
-              <span class="programme-num">01</span>
+        <ol class="programmes">
+          <li class="programme reveal">
+            <span class="programme-num">01</span>
+            <div class="programme-main">
               <h3>1-on-1 Personal Training</h3>
               <p>Your trainer, your session, your plan. Full attention on you from warm-up to the last set, with every workout written for your goals.</p>
-              <ul class="tick-list">
-                <li>Personalised workout programme</li>
-                <li>Coached, supervised sessions</li>
-                <li>Progress tracked over time</li>
-              </ul>
             </div>
-          </article>
-
-          <article class="programme-card">
-            <div class="img-slot programme-media" data-label="Programme photo"></div>
-            <div class="programme-body">
-              <span class="programme-num">02</span>
+            <ul class="programme-tags"><li>Personalised programme</li><li>Coached sessions</li><li>Progress tracking</li></ul>
+            <div class="slot programme-img" data-label="Photo · 4:3"></div>
+          </li>
+          <li class="programme reveal">
+            <span class="programme-num">02</span>
+            <div class="programme-main">
               <h3>Beginner Foundations</h3>
-              <p>New to the gym or coming back after a break? Learn the key movements properly, build confidence, and get comfortable with exercises that used to look intimidating.</p>
-              <ul class="tick-list">
-                <li>Step-by-step technique coaching</li>
-                <li>Patient, supportive pace</li>
-                <li>Strong base for long-term training</li>
-              </ul>
+              <p>New to the gym or coming back after a break? Learn the key movements properly and build confidence with exercises that used to feel intimidating.</p>
             </div>
-          </article>
-
-          <article class="programme-card">
-            <div class="img-slot programme-media" data-label="Programme photo"></div>
-            <div class="programme-body">
-              <span class="programme-num">03</span>
+            <ul class="programme-tags"><li>Technique first</li><li>Patient pace</li><li>Strong base</li></ul>
+            <div class="slot programme-img" data-label="Photo · 4:3"></div>
+          </li>
+          <li class="programme reveal">
+            <span class="programme-num">03</span>
+            <div class="programme-main">
               <h3>Strength &amp; Muscle</h3>
-              <p>Get stronger and build muscle with structured, progressive training. You get pushed just enough, with form you can trust under load.</p>
-              <ul class="tick-list">
-                <li>Progressive strength plan</li>
-                <li>Lifting technique &amp; form correction</li>
-                <li>Measurable strength gains</li>
-              </ul>
+              <p>Get stronger and build muscle with structured, progressive training. Pushed just enough, with form you can trust under load.</p>
             </div>
-          </article>
-
-          <article class="programme-card">
-            <div class="img-slot programme-media" data-label="Programme photo"></div>
-            <div class="programme-body">
-              <span class="programme-num">04</span>
+            <ul class="programme-tags"><li>Progressive plan</li><li>Lifting technique</li><li>Measurable gains</li></ul>
+            <div class="slot programme-img" data-label="Photo · 4:3"></div>
+          </li>
+          <li class="programme reveal">
+            <span class="programme-num">04</span>
+            <div class="programme-main">
               <h3>Fat Loss &amp; Conditioning</h3>
               <p>Lose fat, improve fitness and feel more energetic, with training you can keep up and a coach keeping you accountable every week.</p>
-              <ul class="tick-list">
-                <li>Tailored training plan</li>
-                <li>Conditioning &amp; fitness work</li>
-                <li>Regular check-ins &amp; accountability</li>
-              </ul>
             </div>
-          </article>
-        </div>
+            <ul class="programme-tags"><li>Tailored training</li><li>Conditioning</li><li>Weekly check-ins</li></ul>
+            <div class="slot programme-img" data-label="Photo · 4:3"></div>
+          </li>
+        </ol>
 
-        <div class="section-cta">
-          <p>Not sure which is right for you? We'll help you choose.</p>
-          <a href="#book" class="btn btn-primary">Book a Free Consultation</a>
+        <div class="inline-cta reveal">
+          <p>Not sure which fits? We'll help you choose.</p>
+          <a class="cta" href="#book">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
 
-    <!-- ============ 3. MEET THE TRAINERS ============ -->
-    <section class="section section-dark" id="trainers" aria-labelledby="trainers-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Meet the Trainers</p>
-          <h2 id="trainers-title" class="section-title">Coaches who know you<br /><span class="text-yellow">by name.</span></h2>
-          <p class="section-lead">
-            Friendly, knowledgeable and patient. Our trainers teach you the right form, push you at the right
-            pace, and stay with you all the way to your goal.
-          </p>
-        </div>
+    <!-- ============ 02 COACHES ============ -->
+    <section class="section" id="coaches" aria-labelledby="coaches-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="label"><span>02</span> Coaches</p>
+          <p class="label label-right">Friendly. Knowledgeable.<br />Patient.</p>
+        </header>
+        <h2 id="coaches-title" class="title reveal">The Coaches</h2>
 
-        <!-- TRAINERS: duplicate a .trainer-card for each coach. Replace the placeholder text and add a photo. -->
-        <div class="trainer-grid">
-          <article class="trainer-card">
-            <div class="img-slot trainer-photo" data-label="Trainer portrait · 4:5"></div>
-            <div class="trainer-info">
+        <!-- COACHES: duplicate a .coach block per trainer and add their portrait -->
+        <div class="coaches">
+          <article class="coach reveal">
+            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-meta">
               <h3>Samanda</h3>
-              <p class="trainer-role">Personal Trainer</p>
-              <p class="trainer-bio">Clients describe her as friendly, supportive and knowledgeable. She teaches proper form from day one and knows how to push you just enough.</p>
-              <div class="tags"><span>Form correction</span><span>Beginners</span></div>
+              <p class="coach-role">Personal trainer</p>
             </div>
+            <p class="coach-bio">Teaches proper form from day one and knows how to push you just enough. Clients call her friendly, supportive and knowledgeable.</p>
           </article>
-
-          <article class="trainer-card">
-            <div class="img-slot trainer-photo" data-label="Trainer portrait · 4:5"></div>
-            <div class="trainer-info">
-              <h3>Trainer Name</h3>
-              <p class="trainer-role">Personal Trainer</p>
-              <p class="trainer-bio">Short bio: coaching style, background and the kind of clients this trainer works with best.</p>
-              <div class="tags"><span>Specialism</span><span>Specialism</span></div>
+          <article class="coach reveal">
+            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-meta">
+              <h3>Trainer name</h3>
+              <p class="coach-role">Personal trainer</p>
             </div>
+            <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
-
-          <article class="trainer-card">
-            <div class="img-slot trainer-photo" data-label="Trainer portrait · 4:5"></div>
-            <div class="trainer-info">
-              <h3>Trainer Name</h3>
-              <p class="trainer-role">Personal Trainer</p>
-              <p class="trainer-bio">Short bio: coaching style, background and the kind of clients this trainer works with best.</p>
-              <div class="tags"><span>Specialism</span><span>Specialism</span></div>
+          <article class="coach reveal">
+            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-meta">
+              <h3>Trainer name</h3>
+              <p class="coach-role">Personal trainer</p>
             </div>
+            <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
-
-          <article class="trainer-card">
-            <div class="img-slot trainer-photo" data-label="Trainer portrait · 4:5"></div>
-            <div class="trainer-info">
-              <h3>Trainer Name</h3>
-              <p class="trainer-role">Personal Trainer</p>
-              <p class="trainer-bio">Short bio: coaching style, background and the kind of clients this trainer works with best.</p>
-              <div class="tags"><span>Specialism</span><span>Specialism</span></div>
+          <article class="coach reveal">
+            <div class="slot coach-img" data-label="Portrait · 4:5"></div>
+            <div class="coach-meta">
+              <h3>Trainer name</h3>
+              <p class="coach-role">Personal trainer</p>
             </div>
+            <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ 4. TRANSFORMATIONS & TESTIMONIALS ============ -->
+    <!-- ============ 03 RESULTS ============ -->
     <section class="section" id="results" aria-labelledby="results-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">Client Transformations</p>
-          <h2 id="results-title" class="section-title">Real clients.<br /><span class="text-yellow">Real results.</span></h2>
+      <div class="wrap">
+        <header class="section-head">
+          <p class="label"><span>03</span> Results</p>
+          <p class="label label-right">Real clients.<br />Real progress.</p>
+        </header>
+        <h2 id="results-title" class="title reveal">Real Results</h2>
+
+        <!-- TRANSFORMATIONS: add before/after photos and the client's details -->
+        <div class="transforms">
+          <figure class="transform reveal">
+            <div class="ba"><div class="slot" data-label="Before"></div><div class="slot" data-label="After"></div></div>
+            <figcaption><span>Client name</span><span>Duration · Programme · Result</span></figcaption>
+          </figure>
+          <figure class="transform reveal">
+            <div class="ba"><div class="slot" data-label="Before"></div><div class="slot" data-label="After"></div></div>
+            <figcaption><span>Client name</span><span>Duration · Programme · Result</span></figcaption>
+          </figure>
+          <figure class="transform reveal">
+            <div class="ba"><div class="slot" data-label="Before"></div><div class="slot" data-label="After"></div></div>
+            <figcaption><span>Client name</span><span>Duration · Programme · Result</span></figcaption>
+          </figure>
         </div>
 
-        <!-- TRANSFORMATIONS: add before/after photos and fill in each client's details. -->
-        <div class="transform-grid">
-          <article class="transform-card">
-            <div class="before-after">
-              <div class="img-slot" data-label="Before"></div>
-              <div class="img-slot" data-label="After"></div>
-            </div>
-            <div class="transform-info">
-              <h3>Client Name</h3>
-              <p>Duration · Programme · Key result</p>
-            </div>
-          </article>
-          <article class="transform-card">
-            <div class="before-after">
-              <div class="img-slot" data-label="Before"></div>
-              <div class="img-slot" data-label="After"></div>
-            </div>
-            <div class="transform-info">
-              <h3>Client Name</h3>
-              <p>Duration · Programme · Key result</p>
-            </div>
-          </article>
-          <article class="transform-card">
-            <div class="before-after">
-              <div class="img-slot" data-label="Before"></div>
-              <div class="img-slot" data-label="After"></div>
-            </div>
-            <div class="transform-info">
-              <h3>Client Name</h3>
-              <p>Duration · Programme · Key result</p>
-            </div>
-          </article>
-        </div>
-
-        <!-- Review summary -->
-        <div class="review-summary">
-          <div class="review-score">
-            <span class="score">4.9</span>
-            <div>
-              <span class="stars" aria-hidden="true">★★★★★</span>
-              <p>Based on <strong>309</strong> Google reviews</p>
-            </div>
+        <div class="reviews">
+          <div class="score reveal">
+            <p class="score-num">4<span class="dp" aria-hidden="true"></span><span class="sr-only">.</span>9</p>
+            <p class="score-meta"><span class="stars" aria-hidden="true">●●●●●</span>309 Google reviews</p>
           </div>
-          <div class="review-topics">
-            <p class="topics-label">What clients mention most</p>
-            <ul class="topic-chips">
-              <li><strong>107</strong> Personal training</li>
-              <li><strong>30</strong> Form correction</li>
-              <li><strong>29</strong> Tailored workouts</li>
-              <li><strong>26</strong> Patient trainer</li>
+
+          <div class="mentions reveal">
+            <p class="label">What clients mention most</p>
+            <ul>
+              <li><span>Personal training</span><i aria-hidden="true"></i><b>107</b></li>
+              <li><span>Form correction</span><i aria-hidden="true"></i><b>30</b></li>
+              <li><span>Tailored workouts</span><i aria-hidden="true"></i><b>29</b></li>
+              <li><span>Patient trainer</span><i aria-hidden="true"></i><b>26</b></li>
             </ul>
           </div>
         </div>
 
-        <!-- Testimonials -->
-        <div class="testimonial-grid">
-          <figure class="testimonial">
-            <blockquote>
-              “I've been training at POWER for over a month now with Samanda and it has been an incredible experience so far.
-              From teaching me the right form to patiently guiding me through exercises that seemed incredibly intimidating to start on…”
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">S</span>
-              <span><strong>Shaheema Zulfi</strong><small>Google review · ★★★★★</small></span>
-            </figcaption>
+        <div class="quotes">
+          <figure class="quote reveal">
+            <blockquote>“From teaching me the right form to patiently guiding me through exercises that seemed incredibly intimidating to start on…”</blockquote>
+            <figcaption>Shaheema Zulfi <span>· Google review</span></figcaption>
           </figure>
-
-          <figure class="testimonial">
-            <blockquote>
-              “This was my first time enrolling in personal training classes, and I'm really glad I did. My instructor, Samanda,
-              has been friendly, supportive, and knowledgeable from day one. She knows how to push me just enough…”
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">A</span>
-              <span><strong>Alyssa Wong</strong><small>Google review · ★★★★★</small></span>
-            </figcaption>
-          </figure>
-
-          <!-- TESTIMONIAL: add another client review here -->
-          <figure class="testimonial testimonial-placeholder">
-            <blockquote>
-              “Add another client testimonial here, ideally one that mentions a specific result or goal achieved.”
-            </blockquote>
-            <figcaption>
-              <span class="avatar" aria-hidden="true">+</span>
-              <span><strong>Client Name</strong><small>Google review · ★★★★★</small></span>
-            </figcaption>
+          <figure class="quote reveal">
+            <blockquote>“My instructor, Samanda, has been friendly, supportive, and knowledgeable from day one. She knows how to push me just enough…”</blockquote>
+            <figcaption>Alyssa Wong <span>· Google review</span></figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ============ 5. WHY CHOOSE POWER ============ -->
-    <section class="section section-yellow" id="why" aria-labelledby="why-title">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow eyebrow-dark">Why Choose POWER</p>
-          <h2 id="why-title" class="section-title">More than a gym.<br />Your personal coach.</h2>
-        </div>
+    <!-- ============ 04 WHY POWER ============ -->
+    <section class="section section-light" id="why" aria-labelledby="why-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="label"><span>04</span> Why POWER</p>
+          <p class="label label-right">More than a gym.<br />Your personal coach.</p>
+        </header>
+        <h2 id="why-title" class="title reveal">Why Power</h2>
 
-        <div class="why-grid">
-          <div class="why-item">
-            <span class="why-num">01</span>
-            <h3>Truly one-on-one</h3>
-            <p>No crowded classes and no being left to figure it out yourself. Your trainer's focus is on you for the whole session.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-num">02</span>
-            <h3>Form comes first</h3>
-            <p>We correct your technique rep by rep, so you train safely, get more from every exercise and build habits that last.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-num">03</span>
-            <h3>Tailored to you</h3>
-            <p>Your programme is written for your body, your goals and your schedule, and adjusted as you get stronger.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-num">04</span>
-            <h3>Patient, supportive coaching</h3>
-            <p>Whether it's your first session or your hundredth, we coach at your pace and push you just enough.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-num">05</span>
-            <h3>Trusted by hundreds</h3>
-            <p>A 4.9-star rating from 309 Google reviews. Our clients' results and words speak for us.</p>
-          </div>
-          <div class="why-item">
-            <span class="why-num">06</span>
-            <h3>Convenient in USJ Taipan</h3>
-            <p>Easy to reach in Subang Jaya and open until 9 PM, so training fits around work and life.</p>
-          </div>
+        <div class="why">
+          <div class="why-item reveal"><span>01</span><h3>Truly one-on-one</h3><p>No crowded classes. Your trainer's focus is on you for the whole session.</p></div>
+          <div class="why-item reveal"><span>02</span><h3>Form comes first</h3><p>Technique corrected rep by rep, so you train safely and get more from every exercise.</p></div>
+          <div class="why-item reveal"><span>03</span><h3>Tailored to you</h3><p>A programme written for your body, goals and schedule, adjusted as you get stronger.</p></div>
+          <div class="why-item reveal"><span>04</span><h3>Patient coaching</h3><p>First session or hundredth, we coach at your pace and push you just enough.</p></div>
+          <div class="why-item reveal"><span>05</span><h3>Trusted locally</h3><p>4.9 stars from 309 Google reviews. Our clients' words speak for us.</p></div>
+          <div class="why-item reveal"><span>06</span><h3>Easy to reach</h3><p>In USJ Taipan, Subang Jaya, and open until 9 PM, so training fits around life.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 6. LOCATION & BOOKING ============ -->
-    <section class="section section-dark" id="book" aria-labelledby="book-title">
-      <div class="container book-grid">
-        <div class="book-copy">
-          <p class="eyebrow">Book Your Free Consultation</p>
-          <h2 id="book-title" class="section-title">Your first step<br /><span class="text-yellow">is free.</span></h2>
-          <p class="section-lead">
-            Come in, meet a trainer and talk through your goals. No pressure and no commitment, just a clear plan for how we can help.
-          </p>
+    <!-- ============ 05 BOOK ============ -->
+    <section class="section" id="book" aria-labelledby="book-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="label"><span>05</span> Book</p>
+          <p class="label label-right">Free consultation<br />No commitment</p>
+        </header>
+        <h2 id="book-title" class="title reveal">Start Here</h2>
 
-          <ol class="steps">
-            <li>
-              <span class="step-num">1</span>
-              <div><h3>Book your consultation</h3><p>Send us your details and we'll confirm a time that suits you.</p></div>
-            </li>
-            <li>
-              <span class="step-num">2</span>
-              <div><h3>Meet your trainer</h3><p>We talk about your goals, experience and any concerns.</p></div>
-            </li>
-            <li>
-              <span class="step-num">3</span>
-              <div><h3>Get your plan</h3><p>We recommend the right programme and you start training with confidence.</p></div>
-            </li>
+        <div class="book">
+          <ol class="steps reveal">
+            <li><span>01</span><div><h3>Book your consultation</h3><p>Send your details and we'll confirm a time that suits you.</p></div></li>
+            <li><span>02</span><div><h3>Meet your coach</h3><p>Talk through your goals, experience and any concerns.</p></div></li>
+            <li><span>03</span><div><h3>Get your plan</h3><p>We recommend the right programme and you start with confidence.</p></div></li>
           </ol>
-        </div>
 
-        <form class="book-form" id="book-form" novalidate>
-          <h3 class="form-title">Book a Free Consultation</h3>
-          <p class="form-note">Fill this in and we'll open WhatsApp with your details ready to send.</p>
+          <form class="form reveal" id="book-form" novalidate>
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+              <label for="f-phone">Phone</label>
+              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="012-345 6789" required />
+            </div>
+            <div class="field">
+              <label for="f-goal">Goal</label>
+              <select id="f-goal" name="goal" required>
+                <option value="" selected disabled>Select your main goal</option>
+                <option>Lose fat / get fitter</option>
+                <option>Build strength &amp; muscle</option>
+                <option>Learn proper form / beginner</option>
+                <option>General health &amp; wellbeing</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-time">Preferred time</label>
+              <select id="f-time" name="time">
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option selected>Evening</option>
+                <option>Weekend</option>
+              </select>
+            </div>
+            <div class="field field-full">
+              <label for="f-msg">Notes <span class="opt">(optional)</span></label>
+              <textarea id="f-msg" name="message" rows="2" placeholder="Injuries, experience, questions…"></textarea>
+            </div>
 
-          <div class="field">
-            <label for="f-name">Full name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
-          </div>
-          <div class="field">
-            <label for="f-phone">Phone number</label>
-            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required placeholder="e.g. 012-345 6789" />
-          </div>
-          <div class="field">
-            <label for="f-goal">Main goal</label>
-            <select id="f-goal" name="goal" required>
-              <option value="" selected disabled>Select your goal</option>
-              <option>Lose fat / get fitter</option>
-              <option>Build strength &amp; muscle</option>
-              <option>Learn proper form / beginner</option>
-              <option>General health &amp; wellbeing</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-time">Preferred time</label>
-            <select id="f-time" name="time">
-              <option>Morning</option>
-              <option>Afternoon</option>
-              <option selected>Evening</option>
-              <option>Weekend</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-msg">Anything we should know? <span class="optional">(optional)</span></label>
-            <textarea id="f-msg" name="message" rows="3" placeholder="Injuries, experience level, questions…"></textarea>
-          </div>
+            <p class="form-error" id="form-error" role="alert" hidden>Please add your name, phone number and main goal.</p>
 
-          <p class="form-error" id="form-error" role="alert" hidden>Please fill in your name, phone number and main goal.</p>
-
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Book My Free Consultation</button>
-          <p class="form-alt">Prefer to call? <a href="tel:+60175861619">017-586 1619</a></p>
-        </form>
-      </div>
-
-      <!-- Location -->
-      <div class="container location" id="location">
-        <div class="location-info">
-          <h3 class="location-title">Find us</h3>
-
-          <div class="info-block">
-            <span class="info-label">Address</span>
-            <address>
-              55D, Jalan USJ 10/1f, USJ 2,<br />
-              47620 Subang Jaya, Selangor
-            </address>
-            <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=POWER+Personal+Training+55D+Jalan+USJ+10%2F1f+Subang+Jaya" target="_blank" rel="noopener">Get directions →</a>
-          </div>
-
-          <div class="info-block">
-            <span class="info-label">Hours</span>
-            <!-- HOURS: replace with the full weekly opening hours -->
-            <p>Open until 9 PM<br /><small class="muted">Call or WhatsApp to confirm opening times</small></p>
-          </div>
-
-          <div class="info-block">
-            <span class="info-label">Contact</span>
-            <p>
-              <a href="tel:+60175861619">017-586 1619</a><br />
-              <a href="https://wa.me/60175861619" target="_blank" rel="noopener">WhatsApp us</a><br />
-              <!-- INSTAGRAM: add the exact profile URL, e.g. https://www.instagram.com/yourhandle -->
-              <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-            </p>
-          </div>
-        </div>
-
-        <div class="map-wrap">
-          <iframe
-            title="Map showing POWER Personal Training, USJ Taipan"
-            src="https://www.google.com/maps?q=POWER+Personal+Training+55D+Jalan+USJ+10%2F1f+Subang+Jaya&amp;output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen></iframe>
+            <div class="form-foot">
+              <button type="submit" class="cta cta-block">Book my free consultation <span class="arrow" aria-hidden="true">→</span></button>
+              <p class="form-note">Opens WhatsApp with your details ready to send. Prefer to call? <a href="tel:+60175861619">017-586 1619</a></p>
+            </div>
+          </form>
         </div>
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="final-cta" aria-label="Book now">
-      <div class="container final-cta-inner">
-        <h2>Ready to train with <span class="text-yellow">POWER?</span></h2>
-        <a href="#book" class="btn btn-primary btn-lg">Book a Free Consultation</a>
+    <!-- ============ 06 VISIT ============ -->
+    <section class="section" id="visit" aria-labelledby="visit-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="label"><span>06</span> Visit</p>
+          <p class="label label-right">USJ Taipan<br />Subang Jaya</p>
+        </header>
+        <h2 id="visit-title" class="title reveal">Find Us</h2>
+
+        <div class="visit">
+          <dl class="visit-info reveal">
+            <div>
+              <dt>Address</dt>
+              <dd>55D, Jalan USJ 10/1f, USJ 2,<br />47620 Subang Jaya, Selangor<br />
+                <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=POWER+Personal+Training+55D+Jalan+USJ+10%2F1f+Subang+Jaya" target="_blank" rel="noopener">Get directions →</a></dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <!-- HOURS: replace with the full weekly opening hours -->
+              <dd>Open until 9 PM<br /><span class="muted">Call or WhatsApp to confirm times</span></dd>
+            </div>
+            <div>
+              <dt>Contact</dt>
+              <dd>
+                <a href="tel:+60175861619">017-586 1619</a><br />
+                <a href="https://wa.me/60175861619" target="_blank" rel="noopener">WhatsApp</a><br />
+                <!-- INSTAGRAM: add the exact profile URL -->
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+              </dd>
+            </div>
+          </dl>
+
+          <div class="map reveal">
+            <iframe
+              title="Map showing POWER Personal Training, USJ Taipan"
+              src="https://www.google.com/maps?q=POWER+Personal+Training+55D+Jalan+USJ+10%2F1f+Subang+Jaya&amp;output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </section>
 
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <a href="#top" class="logo">
-          <span class="logo-mark">POWER</span>
-          <span class="logo-sub">Personal Training</span>
-        </a>
-        <p class="footer-tag">One-on-one personal training in Subang USJ Taipan.</p>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <p class="label">POWER Personal Training<br />Assess / Train / Progress.</p>
+        <p class="label">55D, Jalan USJ 10/1f, USJ 2<br />47620 Subang Jaya, Selangor</p>
+        <p class="label"><a href="tel:+60175861619">017-586 1619</a><br /><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p>
+        <p class="label label-right"><a href="#top">Back to top ↑</a></p>
       </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="#programmes">Programmes</a>
-        <a href="#trainers">Trainers</a>
-        <a href="#results">Results</a>
-        <a href="#why">Why POWER</a>
-        <a href="#location">Location</a>
-      </nav>
-      <div class="footer-contact">
-        <a href="tel:+60175861619">017-586 1619</a>
-        <a href="https://wa.me/60175861619" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>© <span id="year">2026</span> POWER Personal Training · 55D, Jalan USJ 10/1f, USJ 2, 47620 Subang Jaya, Selangor</p>
+      <p class="footer-mark" aria-hidden="true">POWER</p>
+      <p class="footer-legal">© <span id="year">2026</span> POWER Personal Training</p>
     </div>
   </footer>
-
-  <!-- Mobile sticky CTA -->
-  <a href="#book" class="mobile-cta btn btn-primary">Book a Free Consultation</a>
 
   <script src="script.js"></script>
 </body>
