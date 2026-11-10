@@ -6,46 +6,49 @@
   <title>POWER Personal Training | 1-on-1 Coaching in Subang USJ Taipan</title>
   <meta name="description" content="POWER Personal Training, USJ Taipan, Subang Jaya. One-on-one coaching, personalised programmes and form correction. Rated 4.9 from 309 Google reviews. Book a free consultation." />
   <meta name="theme-color" content="#0c0d0f" />
+  <link rel="icon" href="assets/brand/power-logo.svg" type="image/svg+xml" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Doto:ROND,wght@0..100,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Doto:ROND,wght@0..100,100..900&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="top">
-    <a href="#top" class="brand">
-      <span>POWER Personal Training</span>
-      <span class="muted-on-scroll">Assess / Train / Progress.</span>
+    <a href="index.html" class="logo" aria-label="POWER home">
+      <svg viewBox="0 0 128 22" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linejoin="miter" stroke-miterlimit="10" aria-hidden="true" focusable="false">
+        <defs><clipPath id="cap-h"><rect x="0" y="0.6" width="128" height="20.3"/></clipPath></defs>
+        <g clip-path="url(#cap-h)">
+          <path d="M2 2.5H11.25A5.25 5.25 0 0 1 11.25 13H3.9V22"/>
+          <circle cx="35.3" cy="10.75" r="8.25"/>
+          <path d="M52.6 -1.5L59.5 22.5L65.5 -1.5L71.5 22.5L78.6 -1.5"/>
+          <path d="M101.2 2.5H88.9V19H101.2M88.9 10.6H100"/>
+          <path d="M109.6 2.5H114.75A4.75 4.75 0 0 1 114.75 12H111.5V22M115.6 12L125.8 23"/>
+        </g>
+      </svg>
     </a>
 
-    <div class="header-right">
-    <nav class="nav" id="nav" aria-label="Main">
-      <a href="#programmes">Programmes</a><span class="sep" aria-hidden="true">/</span>
-      <a href="#coaches">Coaches</a><span class="sep" aria-hidden="true">/</span>
-      <a href="#results">Results</a><span class="sep" aria-hidden="true">/</span>
-      <a href="#why">Why POWER</a><span class="sep" aria-hidden="true">/</span>
-      <a href="#visit">Visit</a>
-      <a href="#book" class="nav-book">Book →</a>
+    <nav class="nav" aria-label="Main">
+      <a href="index.html#programmes">Programmes</a>
+      <a href="index.html#coaches">Coaches</a>
+      <a href="index.html#results">Results</a>
+      <a href="visit.html">Find us</a>
+      <a href="book.html" class="cta">Book <span class="arrow" aria-hidden="true">→</span></a>
     </nav>
-    <p class="muted-on-scroll">One-on-one coaching / No guesswork</p>
-    </div>
 
     <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
   </header>
 
-  <!-- Mobile menu -->
   <div class="menu" id="menu" hidden>
     <nav aria-label="Mobile">
-      <a href="#programmes">Programmes</a>
-      <a href="#coaches">Coaches</a>
-      <a href="#results">Results</a>
-      <a href="#why">Why POWER</a>
-      <a href="#visit">Visit</a>
+      <a href="index.html#programmes">Programmes</a>
+      <a href="index.html#coaches">Coaches</a>
+      <a href="index.html#results">Results</a>
+      <a href="visit.html">Find us</a>
     </nav>
-    <a href="#book" class="cta cta-block">Book a free consultation <span aria-hidden="true">→</span></a>
+    <a href="book.html" class="cta cta-block">Book a free consultation <span aria-hidden="true">→</span></a>
     <p class="menu-foot">017-586 1619<br />55D, Jalan USJ 10/1f, Subang Jaya</p>
   </div>
 
@@ -60,13 +63,13 @@
 
       <h1 id="hero-title" class="hero-title">Build Power</h1>
 
-      <p class="corner hero-bl">
-        <span>Subang · USJ Taipan</span>
-        <span><a href="#results"><i class="dot" aria-hidden="true"></i>4.9 · 309 Google reviews</a></span>
-      </p>
-
-      <div class="corner hero-br">
-        <a class="cta" href="#book">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
+      <div class="hero-card">
+        <p>
+          <span>One-on-one personal training</span>
+          <span class="muted">Subang · USJ Taipan</span>
+        </p>
+        <a class="rating" href="#results"><i class="dot" aria-hidden="true"></i>4.9 · 309 Google reviews</a>
+        <a class="cta" href="book.html">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
 
@@ -79,10 +82,10 @@
         </p>
 
         <dl class="stats">
-          <div class="stat reveal"><dt>Google rating</dt><dd>4<span class="dp" aria-hidden="true"></span><span class="sr-only">.</span>9</dd></div>
+          <div class="stat reveal"><dt>Google rating</dt><dd>4.9</dd></div>
           <div class="stat reveal"><dt>Client reviews</dt><dd>309</dd></div>
-          <div class="stat reveal"><dt>Coaching ratio</dt><dd>1<span class="colon" aria-hidden="true"></span><span class="sr-only">:</span>1</dd></div>
-          <div class="stat reveal"><dt>Open until</dt><dd>9PM</dd></div>
+          <div class="stat reveal"><dt>Coaching ratio</dt><dd>1:1</dd></div>
+          <div class="stat reveal"><dt>Open until</dt><dd>9 PM</dd></div>
         </dl>
       </div>
     </section>
@@ -92,7 +95,7 @@
       <div class="wrap">
         <header class="section-head">
           <p class="label"><span>01</span> Programmes</p>
-          <p class="label label-right">Every plan starts<br />with a conversation</p>
+          <p class="label">Every plan starts<br />with a conversation</p>
         </header>
         <h2 id="programmes-title" class="title reveal">Programmes</h2>
 
@@ -137,7 +140,7 @@
 
         <div class="inline-cta reveal">
           <p>Not sure which fits? We'll help you choose.</p>
-          <a class="cta" href="#book">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="cta" href="book.html">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -147,7 +150,7 @@
       <div class="wrap">
         <header class="section-head">
           <p class="label"><span>02</span> Coaches</p>
-          <p class="label label-right">Friendly. Knowledgeable.<br />Patient.</p>
+          <p class="label">Friendly. Knowledgeable.<br />Patient.</p>
         </header>
         <h2 id="coaches-title" class="title reveal">The Coaches</h2>
 
@@ -155,34 +158,22 @@
         <div class="coaches">
           <article class="coach reveal">
             <div class="slot coach-img" data-label="Portrait · 4:5"></div>
-            <div class="coach-meta">
-              <h3>Samanda</h3>
-              <p class="coach-role">Personal trainer</p>
-            </div>
+            <div class="coach-meta"><h3>Samanda</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Teaches proper form from day one and knows how to push you just enough. Clients call her friendly, supportive and knowledgeable.</p>
           </article>
           <article class="coach reveal">
             <div class="slot coach-img" data-label="Portrait · 4:5"></div>
-            <div class="coach-meta">
-              <h3>Trainer name</h3>
-              <p class="coach-role">Personal trainer</p>
-            </div>
+            <div class="coach-meta"><h3>Trainer name</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
           <article class="coach reveal">
             <div class="slot coach-img" data-label="Portrait · 4:5"></div>
-            <div class="coach-meta">
-              <h3>Trainer name</h3>
-              <p class="coach-role">Personal trainer</p>
-            </div>
+            <div class="coach-meta"><h3>Trainer name</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
           <article class="coach reveal">
             <div class="slot coach-img" data-label="Portrait · 4:5"></div>
-            <div class="coach-meta">
-              <h3>Trainer name</h3>
-              <p class="coach-role">Personal trainer</p>
-            </div>
+            <div class="coach-meta"><h3>Trainer name</h3><p class="coach-role">Personal trainer</p></div>
             <p class="coach-bio">Short bio: coaching style, background and the clients this trainer works with best.</p>
           </article>
         </div>
@@ -194,7 +185,7 @@
       <div class="wrap">
         <header class="section-head">
           <p class="label"><span>03</span> Results</p>
-          <p class="label label-right">Real clients.<br />Real progress.</p>
+          <p class="label">Real clients.<br />Real progress.</p>
         </header>
         <h2 id="results-title" class="title reveal">Real Results</h2>
 
@@ -216,10 +207,9 @@
 
         <div class="reviews">
           <div class="score reveal">
-            <p class="score-num">4<span class="dp" aria-hidden="true"></span><span class="sr-only">.</span>9</p>
+            <p class="score-num">4.9</p>
             <p class="score-meta"><span class="stars" aria-hidden="true">●●●●●</span>309 Google reviews</p>
           </div>
-
           <div class="mentions reveal">
             <p class="label">What clients mention most</p>
             <ul>
@@ -249,7 +239,7 @@
       <div class="wrap">
         <header class="section-head">
           <p class="label"><span>04</span> Why POWER</p>
-          <p class="label label-right">More than a gym.<br />Your personal coach.</p>
+          <p class="label">More than a gym.<br />Your personal coach.</p>
         </header>
         <h2 id="why-title" class="title reveal">Why Power</h2>
 
@@ -264,106 +254,17 @@
       </div>
     </section>
 
-    <!-- ============ 05 BOOK ============ -->
-    <section class="section" id="book" aria-labelledby="book-title">
+    <!-- ============ CLOSING CTA ============ -->
+    <section class="cta-band" aria-label="Book a consultation">
       <div class="wrap">
-        <header class="section-head">
-          <p class="label"><span>05</span> Book</p>
-          <p class="label label-right">Free consultation<br />No commitment</p>
-        </header>
-        <h2 id="book-title" class="title reveal">Start Here</h2>
-
-        <div class="book">
-          <ol class="steps reveal">
-            <li><span>01</span><div><h3>Book your consultation</h3><p>Send your details and we'll confirm a time that suits you.</p></div></li>
-            <li><span>02</span><div><h3>Meet your coach</h3><p>Talk through your goals, experience and any concerns.</p></div></li>
-            <li><span>03</span><div><h3>Get your plan</h3><p>We recommend the right programme and you start with confidence.</p></div></li>
-          </ol>
-
-          <form class="form reveal" id="book-form" novalidate>
-            <div class="field">
-              <label for="f-name">Name</label>
-              <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required />
-            </div>
-            <div class="field">
-              <label for="f-phone">Phone</label>
-              <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="012-345 6789" required />
-            </div>
-            <div class="field">
-              <label for="f-goal">Goal</label>
-              <select id="f-goal" name="goal" required>
-                <option value="" selected disabled>Select your main goal</option>
-                <option>Lose fat / get fitter</option>
-                <option>Build strength &amp; muscle</option>
-                <option>Learn proper form / beginner</option>
-                <option>General health &amp; wellbeing</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="f-time">Preferred time</label>
-              <select id="f-time" name="time">
-                <option>Morning</option>
-                <option>Afternoon</option>
-                <option selected>Evening</option>
-                <option>Weekend</option>
-              </select>
-            </div>
-            <div class="field field-full">
-              <label for="f-msg">Notes <span class="opt">(optional)</span></label>
-              <textarea id="f-msg" name="message" rows="2" placeholder="Injuries, experience, questions…"></textarea>
-            </div>
-
-            <p class="form-error" id="form-error" role="alert" hidden>Please add your name, phone number and main goal.</p>
-
-            <div class="form-foot">
-              <button type="submit" class="cta cta-block">Book my free consultation <span class="arrow" aria-hidden="true">→</span></button>
-              <p class="form-note">Opens WhatsApp with your details ready to send. Prefer to call? <a href="tel:+60175861619">017-586 1619</a></p>
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 06 VISIT ============ -->
-    <section class="section" id="visit" aria-labelledby="visit-title">
-      <div class="wrap">
-        <header class="section-head">
-          <p class="label"><span>06</span> Visit</p>
-          <p class="label label-right">USJ Taipan<br />Subang Jaya</p>
-        </header>
-        <h2 id="visit-title" class="title reveal">Find Us</h2>
-
-        <div class="visit">
-          <dl class="visit-info reveal">
-            <div>
-              <dt>Address</dt>
-              <dd>55D, Jalan USJ 10/1f, USJ 2,<br />47620 Subang Jaya, Selangor<br />
-                <a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=POWER+Personal+Training+55D+Jalan+USJ+10%2F1f+Subang+Jaya" target="_blank" rel="noopener">Get directions →</a></dd>
-            </div>
-            <div>
-              <dt>Hours</dt>
-              <!-- HOURS: replace with the full weekly opening hours -->
-              <dd>Open until 9 PM<br /><span class="muted">Call or WhatsApp to confirm times</span></dd>
-            </div>
-            <div>
-              <dt>Contact</dt>
-              <dd>
-                <a href="tel:+60175861619">017-586 1619</a><br />
-                <a href="https://wa.me/60175861619" target="_blank" rel="noopener">WhatsApp</a><br />
-                <!-- INSTAGRAM: add the exact profile URL -->
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-              </dd>
-            </div>
-          </dl>
-
-          <div class="map reveal">
-            <iframe
-              title="Map showing POWER Personal Training, USJ Taipan"
-              src="https://www.google.com/maps?q=POWER+Personal+Training+55D+Jalan+USJ+10%2F1f+Subang+Jaya&amp;output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen></iframe>
+        <div class="cta-card reveal">
+          <div>
+            <h2>Your first step<br /><em>is free.</em></h2>
+            <p>Come in, meet a coach and talk through your goals. No pressure and no commitment, just a clear plan for how we can help.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="cta" href="book.html">Book a free consultation <span class="arrow" aria-hidden="true">→</span></a>
+            <a class="btn-line" href="visit.html">Find us <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -374,14 +275,57 @@
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-top">
-        <p class="label">POWER Personal Training<br />Assess / Train / Progress.</p>
-        <p class="label">55D, Jalan USJ 10/1f, USJ 2<br />47620 Subang Jaya, Selangor</p>
-        <p class="label"><a href="tel:+60175861619">017-586 1619</a><br /><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p>
-        <p class="label label-right"><a href="#top">Back to top ↑</a></p>
+      <div class="footer-grid">
+        <div>
+          <p class="label">POWER</p>
+          <p>One-on-one personal training<br />in USJ Taipan, Subang Jaya.</p>
+        </div>
+        <div>
+          <p class="label">Visit</p>
+          <address>
+            <ul>
+              <li>55D, Jalan USJ 10/1f, USJ 2</li>
+              <li>47620 Subang Jaya, Selangor</li>
+              <li><a href="visit.html">Find us →</a></li>
+            </ul>
+          </address>
+        </div>
+        <div>
+          <p class="label">Contact</p>
+          <ul>
+            <li><a href="tel:+60175861619">017-586 1619</a></li>
+            <li><a href="https://wa.me/60175861619" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/power.malaysia/" target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="label">Explore</p>
+          <ul>
+            <li><a href="index.html#programmes">Programmes</a></li>
+            <li><a href="index.html#coaches">Coaches</a></li>
+            <li><a href="index.html#results">Results</a></li>
+            <li><a href="book.html">Book a consultation</a></li>
+          </ul>
+        </div>
       </div>
-      <p class="footer-mark" aria-hidden="true">POWER</p>
-      <p class="footer-legal">© <span id="year">2026</span> POWER Personal Training</p>
+
+      <div class="footer-mark">
+        <svg viewBox="0 0 128 22" fill="none" stroke="currentColor" stroke-width="3.8" stroke-linejoin="miter" stroke-miterlimit="10" aria-hidden="true" focusable="false">
+        <defs><clipPath id="cap-f"><rect x="0" y="0.6" width="128" height="20.3"/></clipPath></defs>
+        <g clip-path="url(#cap-f)">
+          <path d="M2 2.5H11.25A5.25 5.25 0 0 1 11.25 13H3.9V22"/>
+          <circle cx="35.3" cy="10.75" r="8.25"/>
+          <path d="M52.6 -1.5L59.5 22.5L65.5 -1.5L71.5 22.5L78.6 -1.5"/>
+          <path d="M101.2 2.5H88.9V19H101.2M88.9 10.6H100"/>
+          <path d="M109.6 2.5H114.75A4.75 4.75 0 0 1 114.75 12H111.5V22M115.6 12L125.8 23"/>
+        </g>
+      </svg>
+      </div>
+
+      <div class="footer-legal">
+        <span>© <span id="year">2026</span> POWER Personal Training</span>
+        <span>Subang · USJ Taipan</span>
+      </div>
     </div>
   </footer>
 

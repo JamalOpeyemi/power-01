@@ -47,10 +47,10 @@
     items.forEach((el) => el.classList.add("is-in"));
   }
 
-  // Booking form → opens WhatsApp with a pre-filled message
+  // Booking form (book.html only) → opens WhatsApp with a pre-filled message
   const form = document.getElementById("book-form");
   const error = document.getElementById("form-error");
-  form.addEventListener("submit", (e) => {
+  if (form) form.addEventListener("submit", (e) => {
     e.preventDefault();
     const data = {
       name: form.name.value.trim(),
